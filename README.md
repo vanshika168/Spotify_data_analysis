@@ -154,12 +154,12 @@ SELECT * FROM
 (SELECT 
 	track,
 	COALESCE(SUM(CASE WHEN most_played_on = 'Youtube' THEN stream END),0) as streamed_on_youtube,
-	COALESCE(SUM(CASE WHEN most_played_on = 'Spotify' THEN stream END),0) as streamed_on_spotif FROM spotify
+	COALESCE(SUM(CASE WHEN most_played_on = 'Spotify' THEN stream END),0) as streamed_on_spotify FROM spotify
 GROUP BY 1
 ) as t1
 WHERE streamed_on_spotify > streamed_on_youtube
 	AND 
-	steamed_on_youtube <> 0;
+	streamed_on_youtube <> 0;
 ```
 
 ### Advanced Level
